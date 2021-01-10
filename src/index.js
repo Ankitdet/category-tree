@@ -2,11 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './extensions';
 import './index.css';
-import  Treeview  from './SampleTest/App';
 
 ReactDOM.render(<Treeview />, document.getElementById('root'));
 
-/* import { createMockData } from './utils';
+import { createMockData } from './utils';
 
 let store = createStore(reducer, createMockData(5));
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
@@ -24,4 +23,4 @@ window.addEventListener('keyup', function (ev) {
     else
         window.controlPressed = ev.ctrlKey;
 });
- */
+ 
