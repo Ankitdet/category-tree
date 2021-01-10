@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './extensions';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './reducer';
 import './index.css';
-
-ReactDOM.render(<Treeview />, document.getElementById('root'));
-
+import { App } from './containers';
+import './extensions';
 import { createMockData } from './utils';
 
 let store = createStore(reducer, createMockData(5));
@@ -23,4 +24,3 @@ window.addEventListener('keyup', function (ev) {
     else
         window.controlPressed = ev.ctrlKey;
 });
- 
