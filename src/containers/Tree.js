@@ -20,7 +20,6 @@ class Tree extends Component {
         console.log('root', root);
         return (
             <div>
-                <div><button onClick={this.handleClick}>Expandall</button></div>
                 <div className="tree">
                     <NodeContainer key={root.id} {...root} />
                 </div>
