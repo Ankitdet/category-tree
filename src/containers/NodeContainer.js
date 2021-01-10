@@ -69,38 +69,32 @@ class NodeContainer extends Component {
         return (
             <div className={"node-container " + hasChildrenClass} key={id} style={containerStyle}>
                 {
-                    children.map((child) => {
-                        (child.children.length > 0 ?
-                            <NodeContainer key={child.id} {...child} />
-                            :
-                            this.state.editMode ?
-                                <EditableNode
-                                    id={child.id}
-                                    counter={child.children.length}
-                                    name={child.name}
-                                    type={child.type}
-                                    valueType={child.valueType}
-                                    value={child.value}
-                                    onEndEdit={this.handleEndEdit} />
+                    this.state.editMode ?
+                        <EditableNode
+                            id={id}
+                            counter={children.length}
+                            name={name}
+                            type={type}
+                            valueType={valueType}
+                            value={value}
+                            onEndEdit={this.handleEndEdit} />
 
-                                : <div>
-                                    <Node id={child.id}
-                                        name={child.name}
-                                        type={child.type}
-                                        counter={child.children.length}
-                                        valueType={child.valueType}
-                                        value={child.value}
-                                        parentId={child.parentId}
-                                        onClick={this.handleClick}
-                                        onMouseEnter={this.handleMouseEnter}
-                                        onMouseLeave={this.handleMouseLeave}
-                                        showControls={this.state.showControls}
-                                        onBeginEdit={this.handleBeginEdit} />
-                                </div>
-                        )
-                    })
+                        : <div>
+                            <Node id={id}
+                                name={name}
+                                type={type}
+                                counter={children.length}
+                                valueType={valueType}
+                                value={value}
+                                parentId={parentId}
+                                onClick={this.handleClick}
+                                onMouseEnter={this.handleMouseEnter}
+                                onMouseLeave={this.handleMouseLeave}
+                                showControls={this.state.showControls}
+                                onBeginEdit={this.handleBeginEdit} />
+                        </div>
                 }
-                {/* <PlaceholderNode visible={isOver} /> */}
+                <PlaceholderNode visible={isOver} />
                 <SmoothCollapse expanded={this.state.childrenVisible}>
                     <NodeList parentId={id}>
                         {children}
